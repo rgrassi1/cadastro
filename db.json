@@ -1,0 +1,15 @@
+{
+  "clientes": [
+    {
+      "codigo": "123",
+      "nome": "Rodrigo",
+      "endereco": "Rua Marcos Gaspar",
+      "bairro": "São Roque",
+      "cidade": "Bento Gonçalves",
+      "cep": "95.700-000",
+      "cpf": "003.319.780-67",
+      "rg": "40.876.722-2",
+      "id": 1
+    }
+  ]
+}
