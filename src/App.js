@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Consulta from './pages/consulta';
-import Cadastro from './pages/cadastro';
+import Clientes from './pages/Clientes';
+import ClientesNew from './pages/Clientes/New';
 import GlobalStyle from './styles/global';
 
 function App() {
   return (
     <React.Fragment>
       <Router>
-        <Route exact path='/' component={Consulta} />
-        <Route path='/new' component={Cadastro}/>
+        <Route exact path='/' component={Clientes} />
+        <Route path='/new' component={ClientesNew}/>
       </Router>
       <GlobalStyle/>
     </React.Fragment>
