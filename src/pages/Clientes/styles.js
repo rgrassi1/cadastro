@@ -16,6 +16,10 @@ export const Container = styled.div`
   h1 {
     padding: 8px 0;
     color: #444;
+    align-self: flex-start;
+  } 
+  h2 {
+    color: #444;
   } 
 
   form {
@@ -36,10 +40,10 @@ export const Container = styled.div`
     color: #f95e5a;
     font-weight: 500;
     font-size: 1.3rem;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     display: block;
   }
-  form > button {
+  button {
     padding: 8px 16px;
     border-radius: 4px;
     border: 0;
@@ -47,14 +51,31 @@ export const Container = styled.div`
     color: #fff;
     font-weight: 600;
     font-size: 1.5rem;
-    cursor: pointer;   
+    cursor: pointer;  
+    margin-right: 4px; 
+    margin-top: 8px;
   }
-  form > button:hover {
+  button {
+    min-width: 90px;
+  }
+  button:hover {
     background: #10b26c;
   }
-  form > button[disabled] {
+  button[disabled] {
     cursor: not-allowed;
     background: #88edc4;
+    color: #e7fbf3;  
+  }
+  button[type='button'] {
+    background: #ccc;
+    color: #e7fbf3;  
+  }
+  button[type='button']:hover {
+    background: #bbb;
+  }
+  button[type='button'][disabled] {
+    cursor: not-allowed;
+    background: #ddd;
     color: #e7fbf3;  
   }
 
@@ -62,34 +83,31 @@ export const Container = styled.div`
     font-size: 1.6rem;
     color: #444;
   }
-
   thead > tr {
     height: 36px;
     background: #999;
   }
-
   thead > tr > th {
     padding: 0 8px;
     border-radius: 4px;
     color: #fff;
   }
-
   tbody > tr > td {
     background: #fff;
     padding: 4px 8px;
     border-radius: 4px;
   }
-
   tbody > tr:hover > td {
     background: #ddd;
     transition: all 0.3s;
   }
-
   tbody > tr > td > a {
-    text-decoration: none;
     font-weight: 500;
+    display: block;
   }
-
+  tbody > tr > td > a > svg {
+    vertical-align: middle;
+  }
   tbody > tr > td:last-of-type > a {
     color: red;
   }

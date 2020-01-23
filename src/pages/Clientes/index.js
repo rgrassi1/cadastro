@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { MdEdit, MdRemoveCircle } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import { Container } from "./styles";
 import api from "../../services/api";
 
@@ -17,8 +19,9 @@ export default function Consulta() {
   return (
     <Container>
       <div>
-        <h1>Consulta de Clientes</h1>
         <div>
+          <h1 style={{ alignSelf: 'center' }}>Consulta de Clientes</h1>
+          <Link to='/new' style={{ alignSelf: 'flex-start', fontWeight: 500, fontSize: '1.60rem', padding: 8 }}>Novo cliente</Link>
           <table>
             <thead>
               <tr>
@@ -43,8 +46,12 @@ export default function Consulta() {
                   <td>{cliente.cep}</td>
                   <td>{cliente.cpf}</td>
                   <td>{cliente.rg}</td>
-                  <td><a href="#">Editar</a></td>
-                  <td><a href="#">Excluir</a></td>
+                  <td>
+                    <Link to={`/${cliente.id}`}><MdEdit size={20}/></Link>
+                  </td>
+                  <td>
+                    <Link to='/'><MdRemoveCircle size={20}/></Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

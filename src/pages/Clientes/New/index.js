@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import { Form, Input } from '@rocketseat/unform';
 import { Container } from "../styles";
 import api from "../../../services/api";
-import InputCEP from "../../../components/InputCEP";
-import InputCPF from "../../../components/InputCPF";
-import InputRG from "../../../components/InputRG";
+import history from '../../../services/history';
+import InputMask from "../components/InputMask";
 import { schema } from '../validation';
 
-export default function Cadastro() {
-  const [fetching, setFetching] = useState(false);
+export default function ClientesNew() {
+  const [submiting, setSubmiting] = useState(false);
   
   async function handleSubmit(data) {
-    console.log("data: ", data);
-    /*setFetching(true);
+    setSubmiting(true);
     setTimeout(async () => {
       await api.post("/clientes", data);    
-      setFetching(false);
-    }, 1000);*/
+      setSubmiting(false);
+      history.push('/');
+    }, 1000);
+  }
+
+  function handleBack() {
+    history.push('/');
   }
 
   return (
@@ -49,22 +52,26 @@ export default function Cadastro() {
             name="cidade"
             placeholder="Cidade"
           />
-          <InputCEP
+          <InputMask
+            mask={[/\d/, /\d/, ".", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/]}
             type="text"
             name="cep"
             placeholder="CEP"
           />
-          <InputCPF
+          <InputMask
+            mask={[/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]}
             type="text"
             name="cpf"
             placeholder="CPF"
           />
-          <InputRG
+          <InputMask
+            mask={[/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]}
             type="text"
             name="rg"
             placeholder="RG"
           />
-          <button type="submit" disabled={fetching}>Submit</button>
+          <button type="submit" disabled={submiting}>Submit</button>
+          <button type="button" disabled={submiting} onClick={handleBack}>Back</button>
         </Form>
       </div>
     </Container>
